@@ -1,0 +1,60 @@
+<div style="padding: 10px"  *ngIf="forecastDetails">
+
+
+  <div>
+    <h2 style="float: left">Current Weather Details : </h2>
+    <a  [routerLink]="['/']" style="float: right"><h2  >Home</h2></a>
+  </div>
+
+  <table class="table table-bordered">
+    <tr>
+      <th>City</th>
+      <th>Temperature(deg)</th>
+      <th>Minimum Temperature(deg)</th>
+      <th>Maximum Temperature(deg)</th>
+      <th>Humidity(%)</th>
+      <th>Pressure(hpa)</th>
+      <th>Wind</th>
+      <th>Description</th>
+    </tr>
+    <tr>
+      <td>{{forecastDetails.currentWeather.city_name}} </td>
+      <td> {{forecastDetails.currentWeather.temp}}</td>
+      <td>{{forecastDetails.currentWeather.temp_min}} </td>
+      <td> {{forecastDetails.currentWeather.temp_max}}</td>
+      <td> {{forecastDetails.currentWeather.humidity}}</td>
+      <td> {{forecastDetails.currentWeather.pressure}}</td>
+      <td> {{forecastDetails.currentWeather.wind}}</td>
+      <td> {{forecastDetails.currentWeather.description}}</td>
+    </tr>
+  </table>
+
+
+  <div>
+    <h2> Weather Forecast Details : </h2>
+  </div>
+  <table class="table table-bordered">
+    <tr>
+      <th>Date</th>
+      <th>Time</th>
+      <th>Temperature(deg)</th>
+      <th>Minimum Temperature(deg)</th>
+      <th>Maximum Temperature(deg)</th>
+      <th>Humidity(%)</th>
+      <th>Pressure(hpa)</th>
+      <th>Wind</th>
+      <th>Description</th>
+    </tr>
+    <tr *ngFor="let forecast of forecastDetails.forecast">
+      <td>{{forecast.time | date }} </td>
+      <td>{{forecast.time | date:'shortTime'}} </td>
+      <td> {{forecast.temp}}</td>
+      <td>{{forecast.temp_min}} </td>
+      <td> {{forecast.temp_max}}</td>
+      <td> {{forecast.humidity}}</td>
+      <td> {{forecast.pressure}}</td>
+      <td> {{forecast.wind}}</td>
+      <td> {{forecast.description}}</td>
+    </tr>
+  </table>
+</div>

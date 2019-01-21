@@ -1,0 +1,31 @@
+<div style="padding: 10px"  *ngIf="currWeatherList.length!=0">
+  <div>
+    <h2 style="float: left">Current Weather Details : </h2>
+    <a [routerLink]="['/']" style="float: right">
+      <h2>Home</h2>
+    </a>
+  </div>
+
+  <table class="table table-bordered">
+    <tr>
+      <th>City</th>
+      <th>Temperature(deg)</th>
+      <th>Minimum Temperature(deg)</th>
+      <th>Maximum Temperature(deg)</th>
+      <th>Humidity(%)</th>
+      <th>Pressure(hpa)</th>
+      <th>Wind</th>
+      <th>Description</th>
+    </tr>
+    <tr *ngFor="let currWeather of currWeatherList">
+      <td><a [routerLink]="['/details',currWeather.city_name]">{{currWeather.city_name}}</a> </td>
+      <td> {{currWeather.temp}}</td>
+      <td>{{currWeather.temp_min}} </td>
+      <td> {{currWeather.temp_max}}</td>
+      <td> {{currWeather.humidity}}</td>
+      <td> {{currWeather.pressure}}</td>
+      <td> {{currWeather.wind}}</td>
+      <td> {{currWeather.description}}</td>
+    </tr>
+  </table>
+</div>
